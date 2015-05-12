@@ -82,6 +82,32 @@ exports.changePassword = function(req, res, next) {
 /**
  * Get my info
  */
+
+ exports.editProfile = function(req, res, next) {
+  var userId = req.user._id;
+  var name = String(req.body.name);
+  var age = String(req.body.age);
+  var gender = String(req.body.gender);
+  var contactNumber = String(req.body.contactNumber);
+  var address = String(req.body.address);
+
+  User.findById(userId, function (err, user) {
+    if(user.authenticate(email)) {
+      user.name = name;
+      user.age=age;
+      user.gender=gender;
+      user.contactNumber=contactNumber;
+      user.address=address;
+      user.save(function(err) {
+        if (err) return validationError(res, err);
+        res.send(200);
+      });
+    } else {
+      res.send(403);
+    }
+  });
+};
+
 exports.me = function(req, res, next) {
   var userId = req.user._id;
   User.findOne({

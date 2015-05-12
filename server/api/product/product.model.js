@@ -27,6 +27,7 @@ var Product = new Schema({
         guarantee:String
     },
     category: [{type:String}],
+    },    
     productImages:[{
         type:String
     }],
