@@ -1,7 +1,6 @@
 'use strict'
 
-var Order = require('./order.model'),
-    fs = require('fs');
+var Order = require('./order.model');
 
 /*
     API to return the list of orders.

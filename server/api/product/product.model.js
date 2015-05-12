@@ -19,6 +19,14 @@ var Product = new Schema({
     productDesc:{
         type:String
     },
+    productSpec:{
+        size:String,
+        weight:String,
+        color:String,
+        dimensions:String,
+        guarantee:String
+    },
+    category: [{type:String}],
     productImages:[{
         type:String
     }],

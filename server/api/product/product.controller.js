@@ -1,9 +1,28 @@
 'use strict'
 
-var Product = require('./product.model'),
-    formidable  = require('formidable'),
+var express = require('express'),
+    app = express(),
+    Product = require('./product.model'),
+    multer  = require('multer'),
     fs = require('fs'),
-    mapper = require('./product.mapping');
+    mapper = require('./product.mapping'),
+    done = false;
+
+/*Configure the multer.*/
+
+app.use(multer({ dest: './uploads/',
+ rename: function (fieldname, filename) {
+    return filename+Date.now();
+  },
+onFileUploadStart: function (file) {
+  console.log(file.originalname + ' is starting ...')
+},
+onFileUploadComplete: function (file) {
+  console.log(file.fieldname + ' uploaded to  ' + file.path)
+  done=true;
+}
+}));
+
 
 /*
     API to return the list or products.
@@ -49,6 +68,16 @@ exports.updateProduct = function(req,res){
                 (error) ? res.json(500,error) : res.json(200,result)
             })
         }
+    })
+}
+
+/*
+    API to get product list by category.
+*/
+exports.productByCategory = function(req,res){
+    var category = req.params.category || '';
+    Product.find({'category':{ $in: [category] } },function(error,product){
+        (error) ? res.json(500,error) : res.json(200, product);
     })
 }
 
