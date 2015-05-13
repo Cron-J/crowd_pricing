@@ -4,6 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var mails = require('../../utils/mails');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -24,13 +25,15 @@ exports.index = function(req, res) {
  * Creates a new user
  */
 exports.create = function (req, res, next) {
+  var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
   var newUser = new User(req.body);
   newUser.provider = 'local';
   newUser.role = 'user';
+  newUser.vtoken = token;
   newUser.save(function(err, user) {
     if (err) return validationError(res, err);
-    var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
-    res.json({ token: token });
+    var link = "http://localhost:9000/login?id"+user._id + "&token=" + user.token;
+    mails.emailForVerification(req,res,link,user.email);
   });
 };
 
@@ -119,6 +122,28 @@ exports.me = function(req, res, next) {
   });
 };
 
+
+
+/**
+ * Email & Token Verification
+ */
+exports.tokenVerification = function(req, res, next) {
+  if(req.body.token) {
+    User.findById(req.body.userId, function(err, user) {
+      if(err) return res.json(500, err);
+      if(!user) return res.json(401, "No user Found");
+      else{
+        user.isActive = true;
+        user.save(function(err , user) {
+          (err) ?  res.json(err) : res.json(200,"your email address is verified.") ;
+        });
+      } 
+    });
+  } else {
+    res.json(401,"User identification is missing..!");
+  }
+  
+};
 /**
  * Authentication callback
  */

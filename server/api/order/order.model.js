@@ -26,7 +26,8 @@ var Order = new Schema({
         type:String,
         required: true,
         ref:'user'
-    },   
+    }, 
+    status:{type:String,enum:['cancel','processing','complete']},
     finalReward:{type:Number},
     timestamp : Timestamp
 });

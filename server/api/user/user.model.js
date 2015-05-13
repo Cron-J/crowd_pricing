@@ -10,15 +10,20 @@ var UserSchema = new Schema({
   email: { type: String, lowercase: true },
   role: {
     type: String,
-    default: 'user'
+    default: 'user',
+    enum:['user','admin']
   },
   hashedPassword: String,
   provider: String,
   salt: String,
+  vtoken:String,
   facebook: {},
   twitter: {},
   google: {},
-  github: {}
+  isActive: {
+    type:Boolean,
+    default:false
+  }
 });
 
 /**

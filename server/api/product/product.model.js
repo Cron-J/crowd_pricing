@@ -26,8 +26,7 @@ var Product = new Schema({
         dimensions:String,
         guarantee:String
     },
-    category: [{type:String}],
-    },    
+    category: [{type:String , ref: 'Category'}],   
     productImages:[{
         type:String
     }],
