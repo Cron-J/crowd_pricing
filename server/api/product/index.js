@@ -3,11 +3,12 @@
 var express = require('express');
 var controller = require('./product.controller');
 var router = express.Router();
-var app = express();
 
 router.get('/' , controller.index);
-router.post('/create', controller.create);
 router.get('/product/:id', controller.productDetail);
+router.get('category/:category',controller.productByCategory);
+router.post('/create', controller.create);
 router.put('/product/:id', controller.updateProduct);
+router.delete('/product/:id', controller.deleteProduct);
 
 module.exports = router;

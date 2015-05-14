@@ -4,8 +4,7 @@ var express = require('express'),
     app = express(),
     Product = require('./product.model'),
     fs = require('fs'),
-    mapper = require('./product.mapping'),
-    done = false;
+    mapper = require('./product.mapping');
 
 
 

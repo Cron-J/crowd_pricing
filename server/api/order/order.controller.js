@@ -11,7 +11,15 @@ exports.index = function(req,res){
 	})
 }
 
-
+/*
+    API to  return the list of orders by user
+*/
+exports.orderByUser = function(req,res){
+    var userId = req.params.userid || '';
+    Order.find({userId: userId},function(error,orders){
+        (error) ? res.json(500,error) : res.json(200,orders);
+    })
+}
 /*
     API To create new order.
 */
