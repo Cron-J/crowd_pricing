@@ -5,6 +5,7 @@ var controller = require('./product.controller');
 var router = express.Router();
 
 router.get('/' , controller.index);
+router.get('/featuredProducts' , controller.selectRandCatProdt);
 router.get('/product/:id', controller.productDetail);
 router.get('category/:category',controller.productByCategory);
 router.post('/create', controller.create);
