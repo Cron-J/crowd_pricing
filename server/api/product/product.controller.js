@@ -5,7 +5,8 @@ var express = require('express'),
     Product = require('./product.model'),
     fs = require('fs'),
     mapper = require('./product.mapping'),
-    done = false;
+    async=require('async');
+
 
 
 
@@ -74,4 +75,43 @@ exports.deleteProduct = function(req,res){
     Product.findByIdAndRemove(id , function(error,result){
         (error) ? res.json(500,error) : res.json(204,result);
     })
+}
+
+exports.selectRandCatProdt=function(req,res){
+    // var arr=[];
+   getRandProdt(function(arr){
+    // console.log("========",arr);
+    (errors) ? res.json(500,errors) : res.json(200,arr);
+    });
+}
+function getRandProdt(arr){
+
+        
+    async.auto({
+        one: function(callback){
+            category.find({}, function(error, categories){   
+                // (error) ? res.json(500,error) : res.json(200,categories);     
+                for(var i in categories)
+                {
+                    callback(null, categories[i]["_id"])
+                }
+            });
+        }, 
+        // If two does not depend on one, then you can remove the 'one' string
+        //   from the array and they will run asynchronously (good for "parallel" IO tasks)
+        two: ['one', function(callback, results){
+            Product.find({'category':id},{'group': 'category'},function(errors,products){
+                        // pop(products[Math.floor(Math.random() *products.length)]);
+                        var resp=products[Math.floor(Math.random() *products.length)]
+                        callback(null,resp)
+            });
+        }]
+        
+    },  function(err, results) {
+            console.log('err = ', err);
+            console.log('results = ', results);
+            arr(results);
+    });
+        
+
 }

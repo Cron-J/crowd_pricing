@@ -5,9 +5,9 @@ var controller = require('./order.controller');
 var router = express.Router();
 
 router.get('/' , controller.index);
-router.post('/order', controller.create);
 router.get('/order/:id', controller.orderDetail);
-router.put('/order/:id', controller.orderCancel);
+router.post('/order', controller.create);
+router.put('/order/cancel/:id', controller.cancelOrder);
 router.delete('/order/:id', controller.deleteOrder);
 
 module.exports = router;

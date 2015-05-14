@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     autoIncrement = require('mongoose-auto-increment'),
-    db = mongoose.connect()
+    db = mongoose.connection,
     Timestamp = require('../../utils/timestamp').Timestamp;
 
 autoIncrement.initialize(db);
