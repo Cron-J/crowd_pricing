@@ -1,5 +1,5 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-
+<!-- <div ng-include="'components/navbar/navbar.html'"></div>
+ -->
 <!-- ========================================= MAIN ========================================= -->
 <main id="authentication" class="inner-bottom-md">
     <div class="container">
@@ -31,7 +31,7 @@
                         </div><!-- /.field-row -->
                         <div class="field-row" ng-class="{ 'has-success': form.password.$valid && submitted,'has-error': form.password.$invalid && submitted }">
                             <label>Password</label>
-                            <input type="text" name="password" class="le-input" ng-model="user.password" ng-minlength="3" required mongoose-error>
+                            <input type="password" name="password" class="le-input" ng-model="user.password" ng-minlength="3" required mongoose-error>
                             <p class="help-block"
                              ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
                             Password must be at least 3 characters.

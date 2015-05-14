@@ -6,7 +6,7 @@ angular.module('crowdPricingApp')
       .state('login', {
         url: '/login',
         templateUrl: 'app/account/login/login.html',
-        controller: 'LoginCtrl'
+        controller: 'headerCtrl'
       })
       .state('signup', {
         url: '/signup',

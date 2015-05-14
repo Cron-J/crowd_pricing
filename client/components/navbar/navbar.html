@@ -13,10 +13,16 @@
             </ul>
         </div><!-- /.col -->
         <div class="col-xs-12 col-sm-6 no-margin">
-            <ul class="right">
+            <ul class="right" ng-hide="setting.authUser">
                 <li><a ng-href="/signup" >Register</a></li>
                 <li><a ng-href="/login">Login</a></li>
             </ul>
+
+            <ul class="right" ng-show="setting.authUser">
+                <li>Welcome ,{{user.name}}</li>
+                <li ><button class="btn btn-info btn-xs" ng-click="logout();">Logout</button></li>
+            </ul>
+
         </div><!-- /.col -->
     </div><!-- /.container -->
 </nav><!-- /.top-bar -->
