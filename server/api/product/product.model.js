@@ -11,15 +11,15 @@ autoIncrement.initialize(db);
  */
 
 var Product = new Schema({
-    productName: {
+    name: {
         type: String,
         unique: true,
         required: true
     },   
-    productDesc:{
+    desc:{
         type:String
     },
-    productSpec:{
+    specifications:{
         size:String,
         weight:String,
         color:String,
