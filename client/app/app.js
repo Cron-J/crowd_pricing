@@ -8,6 +8,13 @@ angular.module('crowdPricingApp', [
   'ui.bootstrap'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+// $routeProvider
+
+//       .when('/',
+//         {templateUrl: 'app/ProductSearchList/ProductSearchList.html'}
+//         )
+
+
     $urlRouterProvider
       .otherwise('/');
 
