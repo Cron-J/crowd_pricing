@@ -37,7 +37,7 @@ exports.create = function(req,res){
 */
 exports.productDetail = function(req,res){
     var id  = req.params.id || '';
-    Product.findById(id,function(error,product){
+    Product.find({productId:id},function(error,product){
         (error) ? res.json(500,error) : res.json(200, product);
     })
 }
@@ -48,7 +48,7 @@ exports.productDetail = function(req,res){
 */
 exports.updateProduct = function(req,res){
     var id = req.params.id || '';
-    Product.findById(id,function(error,product){
+    Product.find({productId:id},function(error,product){
         if(product){
             var updatedProduct = mapper.productDetail(req.body,product);
             updatedProduct.save(function(error,result){

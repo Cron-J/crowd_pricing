@@ -14,8 +14,8 @@ angular.module('crowdPricingApp')
         controller: 'ProductListCtrl'
       })
       .state('detail', {
-        url: '/product-detail',
+        url: '/product-detail/:id',
         templateUrl: 'components/product-details/product-detail.html',
-        controller: 'MainCtrl'
+        controller: 'ProductDetailCtrl'
       });
   });
