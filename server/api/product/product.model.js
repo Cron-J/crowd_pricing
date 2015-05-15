@@ -11,6 +11,11 @@ autoIncrement.initialize(db);
  */
 
 var Product = new Schema({
+    productId: {
+        type: Number,
+        unique: true,
+        required: true
+    },
     name: {
         type: String,
         unique: true,
@@ -73,7 +78,7 @@ Product.pre('save', function(next){
 
 Product.plugin(autoIncrement.plugin, {
     model: 'product',
-    field: '_id'
+    field: 'productId'
 });
 
 /** export schema */

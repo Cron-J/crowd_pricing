@@ -2,11 +2,26 @@
 
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
+    autoIncrement = require('mongoose-auto-increment'),
+    db = mongoose.connection,
+    Timestamp = require('../../utils/timestamp').Timestamp;
 
-var CategorySchema = new Schema({
+var Category = new Schema({
+  categoryId: {
+    type: Number,
+    unique: true,
+    required: true
+  },
   name: String,
   sub: Array,
-  active: Boolean
+  active: {type:Boolean, default:true},
+  timestamp: Timestamp
 });
 
-module.exports = mongoose.model('Category', CategorySchema);
+
+Category.plugin(autoIncrement.plugin, {
+    model: 'category',
+    field: 'categoryId'
+});
+
+module.exports = mongoose.model('category', Category);
