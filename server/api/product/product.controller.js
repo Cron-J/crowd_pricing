@@ -3,6 +3,7 @@
 var express = require('express'),
     app = express(),
     Product = require('./product.model'),
+    category = require('../category/category.model'),
     fs = require('fs'),
     mapper = require('./product.mapping'),
     async=require('async');
@@ -84,34 +85,29 @@ exports.selectRandCatProdt=function(req,res){
     (errors) ? res.json(500,errors) : res.json(200,arr);
     });
 }
-function getRandProdt(arr){
-
-        
-    async.auto({
-        one: function(callback){
-            category.find({}, function(error, categories){   
-                // (error) ? res.json(500,error) : res.json(200,categories);     
-                for(var i in categories)
-                {
-                    callback(null, categories[i]["_id"])
-                }
-            });
-        }, 
-        // If two does not depend on one, then you can remove the 'one' string
-        //   from the array and they will run asynchronously (good for "parallel" IO tasks)
-        two: ['one', function(callback, results){
-            Product.find({'category':id},{'group': 'category'},function(errors,products){
-                        // pop(products[Math.floor(Math.random() *products.length)]);
-                        var resp=products[Math.floor(Math.random() *products.length)]
-                        callback(null,resp)
-            });
-        }]
-        
-    },  function(err, results) {
-            console.log('err = ', err);
-            console.log('results = ', results);
-            arr(results);
+exports.selectRandCatProdt=function(req,res){
+   getRandProdt(function(err,arr){
+    (err) ? res.json(500,err) : res.json(200,arr);
     });
-        
+}
+function getRandProdt(arr){  
+    category.find({}, function(error, categories){    
+        async.map(categories,getProduct, function(err,result) {
+              arr(null,result);     
+        });
+        function getProduct(categoryList, callback) {
+            setTimeout(function() {
+            var ids=categoryList["categoryId"];
+                Product.find({'category':ids},{},function(errors,products){
+                    if(products!=null && products!=[] && products!='undefined')
+                    {   
+                        var resp=products[Math.floor(Math.random() *products.length)]; 
+                        callback(null,resp);                        
+                    }
 
+                });    
+            }, 1000);
+        }
+
+    });
 }

@@ -6,85 +6,8 @@
                 <div class="head"><i class="fa fa-list"></i> All departments</div>
                 <nav class="yamm megamenu-horizontal" role="navigation">
                     <ul class="nav">
-                        <li class="dropdown menu-item">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <ul class="dropdown-menu mega-menu">
-                                <li class="yamm-content">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <ul class="list-unstyled">
-                                                <li><a href="index.html">Home</a></li>
-                                                <li><a href="index-2.html">Home Alt</a></li>
-                                                <li><a href="category-grid.html">Category - Grid/List</a></li>
-                                                <li><a href="category-grid-2.html">Category 2 - Grid/List</a></li>
-                                                <li><a href="single-product.html">Single Product</a></li>
-                                                <li><a href="single-product-sidebar.html">Single Product with Sidebar</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <ul class="list-unstyled">
-                                                <li><a href="cart.html&amp;style=alt2">Shopping Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact Us</a></li>
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog-fullwidth.html">Blog Full Width</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <ul class="list-unstyled">
-                                                <li><a href="blog-post.html">Blog Post</a></li>
-                                                <li><a href="faq.html">FAQ</a></li>
-                                                <li><a href="terms.html">Terms & Conditions</a></li>
-                                                <li><a href="authentication.html">Login/Register</a></li>
-                                                <li><a href="404.html">404</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a ui-sref='listing'>Air Coolers</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Air Conditioners</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Fans</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Geyser</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Led Bulbs</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Mixer Grinder</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Refrigerators</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Televisions</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Washing Machines</a>
-                        </li>
-                        <!-- /.menu-item -->
-                        <li class="dropdown menu-item">
-                            <a href="#">Water Purifier</a>
+                         <li class="dropdown menu-item" ng-repeat="category in categories">
+                            <a href="#">{{category.name}}</a>
                         </li>
                         <!-- /.menu-item -->
                     </ul>
@@ -203,7 +126,7 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="featured">
                     <div class="product-grid-holder">
-                        <div class="col-sm-4 col-md-3  no-margin product-item-holder hover">
+                        <div class="col-sm-4 col-md-3  no-margin product-item-holder hover" ng-repeat="product in featuredProducts">
                             <div class="product-item">
                                 <div class="ribbon red"><span>sale</span></div>
                                 <div class="image">
@@ -212,7 +135,7 @@
                                 <div class="body">
                                     <div class="label-discount green">-50% sale</div>
                                     <div class="title">
-                                        <a href="single-product.html">VAIO Fit Laptop - Windows 8 SVF14322CXW</a>
+                                        <a href="single-product.html">{{product.name}}</a>
                                     </div>
                                     <div class="brand">sony</div>
                                 </div>
@@ -221,92 +144,6 @@
                                     <div class="price-current pull-right">$1199.00</div>
                                 </div>
 
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button">add to cart</a>
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
-                            <div class="product-item">
-                                <div class="ribbon blue"><span>new!</span></div>
-                                <div class="image">
-                                    <img alt="" src="assets/images/products/product-02.jpg" />
-                                </div>
-                                <div class="body">
-                                    <div class="label-discount clear"></div>
-                                    <div class="title">
-                                        <a href="single-product.html">White lumia 9001</a>
-                                    </div>
-                                    <div class="brand">nokia</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-prev">$1399.00</div>
-                                    <div class="price-current pull-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button">add to cart</a>
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
-                            <div class="product-item">
-
-                                <div class="image">
-                                    <img alt="" src="assets/images/products/product-03.jpg" />
-                                </div>
-                                <div class="body">
-                                    <div class="label-discount clear"></div>
-                                    <div class="title">
-                                        <a href="single-product.html">POV Action Cam</a>
-                                    </div>
-                                    <div class="brand">sony</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-prev">$1399.00</div>
-                                    <div class="price-current pull-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button">add to cart</a>
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-md-3 no-margin product-item-holder hover">
-                            <div class="product-item">
-                                <div class="ribbon red"><span>sale</span></div>
-                                <div class="ribbon green"><span>bestseller</span></div>
-                                <div class="image">
-                                    <img alt="" src="assets/images/products/product-04.jpg" />
-                                </div>
-                                <div class="body">
-                                    <div class="label-discount clear"></div>
-                                    <div class="title">
-                                        <a href="single-product.html">Netbook Acer TravelMate 
-                                            B113-E-10072</a>
-                                    </div>
-                                    <div class="brand">acer</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-prev">$1399.00</div>
-                                    <div class="price-current pull-right">$1199.00</div>
-                                </div>
                                 <div class="hover-area">
                                     <div class="add-cart-button">
                                         <a href="single-product.html" class="le-button">add to cart</a>

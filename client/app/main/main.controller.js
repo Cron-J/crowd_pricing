@@ -15,4 +15,13 @@ angular.module('crowdPricingApp')
 	  error(function(data, status, headers, config) {
 	    console.log('error',data);
 	  });
+
+	  $http.get('/api/products/featured').
+	  success(function(data, status, headers, config) {
+	  	console.log('featured product',data);
+	  	$scope.featuredProducts = data;
+	  }).
+	  error(function(data, status, headers, config) {
+	    console.log('error',data);
+	  });
   });
