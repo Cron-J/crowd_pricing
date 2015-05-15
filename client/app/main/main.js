@@ -9,9 +9,9 @@ angular.module('crowdPricingApp')
         controller: 'MainCtrl'
       })
       .state('listing', {
-        url: '/products',
+        url: '/products/:category',
         templateUrl: 'components/product-list/listing.html',
-        controller: 'MainCtrl'
+        controller: 'ProductListCtrl'
       })
       .state('detail', {
         url: '/product-detail',

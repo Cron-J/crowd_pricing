@@ -87,7 +87,8 @@ exports.selectRandCatProdt=function(req,res){
 }
 exports.selectRandCatProdt=function(req,res){
    getRandProdt(function(err,arr){
-    (err) ? res.json(500,err) : res.json(200,arr);
+      arr=arr.filter(function(n){ return n!=null });
+      (err) ? res.json(500,err) : res.json(200,arr);
     });
 }
 function getRandProdt(arr){  
