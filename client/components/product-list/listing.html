@@ -35,8 +35,7 @@
 					<div class="products-list">
 
 						<div class="product-item product-item-holder" ng-repeat="product in productsbyCategory">
-							<div class="ribbon red"><span>sale</span></div>
-							<div class="ribbon blue"><span>new!</span></div>
+							
 							<div class="row">
 								<div class="no-margin col-xs-12 col-sm-4 image-holder">
 									<div class="image">
@@ -46,7 +45,6 @@
 								<!-- /.image-holder -->
 								<div class="no-margin col-xs-12 col-sm-5 body-holder">
 									<div class="body">
-										<div class="label-discount green">-50% sale</div>
 										<div class="title">
 											<a ui-sref="detail({id:{{product.productId}}})">{{product.name}}</a>
 										</div>
@@ -55,7 +53,23 @@
 											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lobortis euismod erat sit amet porta. Etiam venenatis ac diam ac tristique. Morbi accumsan consectetur odio ut tincidunt.</p>
 										</div>
 										<div class="addto-compare">
-											<a class="btn-add-to-compare" href="#">add to compare list</a>
+											<div class="addto-compare">
+												<div class="social-icons">
+			                                        <ul>
+			                                        	<li>Share on</li>
+			                                            <li>
+			                                                <a href="#" class="fa fa-facebook"></a>
+			                                            </li>
+			                                            <li>
+			                                                <a href="#" class="fa fa-twitter"></a>
+			                                            </li>
+			                                            <li>
+			                                                <a href="#" class="fa fa-google"></a>
+			                                            </li>
+			                                        </ul>
+			                                    </div>
+			                                    <progressbar class="progress-striped active" animate="true" max="100" value="progressValue" type="success"><i><span count-to="{{countTo}}" duration="1" count-from="{{countFrom}}"></span> / 100</i></progressbar>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -67,7 +81,7 @@
 										<div class="availability">
 											<label>availability:</label><span class="available">  in stock</span></div>
 										<a class="le-button" href="#">add to cart</a>
-										<a class="btn-add-to-wishlist" href="#">add to wishlist</a>
+										
 									</div>
 								</div>
 								<!-- /.price-area -->
