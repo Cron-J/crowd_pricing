@@ -992,6 +992,7 @@ header .top-cart-row .top-cart-holder .total-price-basket {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+    text-transform: capitalize;
 }
 .sidemenu-holder .side-menu nav .nav > li > .mega-menu {
   padding: 3px 0;
@@ -5144,4 +5145,32 @@ select.top-drop-menu {
   .owl-buttons {
     display: block;
   }
+}
+
+
+/*custom*/
+
+.progress { 
+  height: 1.3em;
+    margin:10px 0px 10px 0px;
+i { line-height: 3.5em; }
+}
+
+.progress-bar-success {
+  background-color: #5cb85c!important;
+}
+
+.progress-bar {
+  float: left;
+  width: 0;
+  height: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+/*  background-color: #428bca;
+*/  -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+  -webkit-transition: width .6s ease;
+  transition: width 1s ease-in-out; 
 }

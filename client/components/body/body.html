@@ -132,7 +132,6 @@
                                     <img alt="" src="assets/images/products/product-01.jpg" />
                                 </div>
                                 <div class="body">
-                                    <div class="label-discount green">-50% sale</div>
                                     <div class="title">
                                         <a href="single-product.html">{{product.name}}</a>
                                     </div>
@@ -150,6 +149,9 @@
                                             </li>
                                         </ul>
                                     </div>
+
+                                    <progressbar class="progress-striped active" animate="true" max="100" value="progressValue" type="success"><i><span count-to="{{countTo}}" duration="1" count-from="{{countFrom}}"></span> / 100</i></progressbar>
+                                    
                                 </div>
                                 <div class="prices">
                                     <div class="price-prev"></div>
@@ -160,10 +162,7 @@
                                     <div class="add-cart-button">
                                         <a href="single-product.html" class="le-button">add to cart</a>
                                     </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">add to wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">compare</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>

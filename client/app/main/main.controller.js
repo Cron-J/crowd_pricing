@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('crowdPricingApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function ($scope, $http,$timeout) {
     
     $scope.setting={authUser:false};
 
@@ -24,4 +24,16 @@ angular.module('crowdPricingApp')
 	  error(function(data, status, headers, config) {
 	    console.log('error',data);
 	  });
+
+
+// Progress bar
+  var amt = 66;
+  $scope.countTo = amt;
+  $scope.countFrom = 0;
+  
+  $timeout(function(){
+    $scope.progressValue = amt;
+  }, 200);
+
+
   });
