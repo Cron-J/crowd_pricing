@@ -9,6 +9,7 @@ angular.module('crowdPricingApp')
 
     $http.get('/api/categories/').
 	  success(function(data, status, headers, config) {
+	  	console.log(data);
 	    $scope.categories = data;
 	  }).
 	  error(function(data, status, headers, config) {
